@@ -1,0 +1,8 @@
+application {
+	name = "signalsjs"
+	type = "node"
+}
+
+customization "node" {
+	node_version = "0.12.7"
+}

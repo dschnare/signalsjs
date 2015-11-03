@@ -1,0 +1,27 @@
+{
+  "name": "signalsjs",
+  "version": "1.0.0",
+  "description": "Signal library for JavaScript and TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compileweb": "rimraf dist/* && browserify index.js --debug --standalone signals | exorcist dist/signals.js.map > dist/signals.js",
+    "minifyweb": "uglifyjs --compress --mangle --comments --in-source-map dist/signals.js.map --source-map dist/signals.min.js.map --source-map-url signals.min.js.map -o dist/signals.min.js -- dist/signals.js"
+  },
+  "keywords": [
+    "signal",
+    "slot",
+    "event",
+    "signals",
+    "slots",
+    "events"
+  ],
+  "author": "Darren Schnare <schnare.d@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "exorcist": "^0.4.0",
+    "rimraf": "^2.4.3",
+    "uglify-js": "^2.5.0"
+  }
+}
