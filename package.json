@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Signal library for JavaScript and TypeScript",
   "main": "index.js",
+  "typescript": {
+      "definition": "signals.d.ts"
+  },
   "scripts": {
     "test": "tape **/*.spec.js",
     "compileweb": "rimraf dist/* && browserify index.js --debug --standalone signals | exorcist dist/signals.js.map > dist/signals.js",
