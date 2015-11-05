@@ -9,23 +9,23 @@ declare module "signals" {
 	}
 
 	export interface Signal {
-		isLocked(): boolean
-		emit(...args: Array<any>)
+		emit(...args: Array<any>): boolean
 		connect(handler: (...args: Array<any>) => void): Connection
 		connect(handler: (...args: Array<any>) => void, priority: number): Connection
 		connect(handler: (...args: Array<any>) => void, thisObj: any): Connection
 		connect(handler: (...args: Array<any>) => void, thisObj: any, priority: number): Connection
 		lock(key: any): Signal
 		unlock(key: any): Signal
-		disconnectAll()
+		disconnectAll(): void
 	}
 
 	export interface Connection {
-		disconnect()
+		disconnect(): void
 	}
 
 	export interface Slot {
 		(signal: Signal): Connection
-		disconnectAll()
+		(...args: Array<any>): any
+		disconnectAll(): void
 	}
 }
