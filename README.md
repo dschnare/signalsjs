@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/dschnare/signalsjs.svg?branch=master)](https://travis-ci.org/dschnare/signalsjs)
 [![Code Climate](https://codeclimate.com/github/dschnare/signalsjs/badges/gpa.svg)](https://codeclimate.com/github/dschnare/signalsjs)
 [![Test Coverage](https://codeclimate.com/github/dschnare/signalsjs/badges/coverage.svg)](https://codeclimate.com/github/dschnare/signalsjs/coverage)
-#[![npm version](https://badge.fury.io/js/signalsjs.svg)](http://badge.fury.io/js/signalsjs)
+[![npm version](https://badge.fury.io/js/%40dschnare%2Fsignalsjs.svg)](https://badge.fury.io/js/%40dschnare%2Fsignalsjs)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 
