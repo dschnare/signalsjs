@@ -1,5 +1,13 @@
 # Signalsjs
 
+---
+[![Build Status](https://travis-ci.org/dschnare/signalsjs.svg?branch=master)](https://travis-ci.org/dschnare/signalsjs)
+[![Code Climate](https://codeclimate.com/github/dschnare/signalsjs/badges/gpa.svg)](https://codeclimate.com/github/dschnare/signalsjs)
+[![Test Coverage](https://codeclimate.com/github/dschnare/signalsjs/badges/coverage.svg)](https://codeclimate.com/github/dschnare/signalsjs/coverage)
+#[![npm version](https://badge.fury.io/js/signalsjs.svg)](http://badge.fury.io/js/signalsjs)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+
+
 Signalsjs is a light weight signal library. Signals are a replacement for typical
 event-based architectures. The benefit is that objects create signals as part of their API.
 
