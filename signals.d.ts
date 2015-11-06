@@ -1,4 +1,4 @@
-declare module "@dschnare/signals" {
+declare module "@dschnare/signalsjs" {
 	/**
 	 * Create a new signal.
 	 */
