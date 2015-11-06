@@ -9,3 +9,9 @@ ratings:
   - "**.js"
 exclude_paths:
 - "dist/*"
+- "Appfile"
+- "LICENSE"
+- "**.html"
+- "**.md"
+- "**.ts"
+- "**.json"
