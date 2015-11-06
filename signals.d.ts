@@ -12,6 +12,10 @@ declare module "signals" {
 		(handler: (...args: Array<any>) => void, priority: number): Connection;
 		(handler: (...args: Array<any>) => void, thisObj: any): Connection;
 		(handler: (...args: Array<any>) => void, thisObj: any, priority: number): Connection;
+		once(handler: (...args: Array<any>) => void): Connection;
+		once(handler: (...args: Array<any>) => void, priority: number): Connection;
+		once(handler: (...args: Array<any>) => void, thisObj: any): Connection;
+		once(handler: (...args: Array<any>) => void, thisObj: any, priority: number): Connection;
 		emit(...args: Array<any>): boolean;
 		lock(key: any): Signal;
 		unlock(key: any): Signal;
