@@ -1,5 +1,5 @@
 {
-  "name": "signalsjs",
+  "name": "@dschnare/signalsjs",
   "version": "1.0.0",
   "description": "Signal library for JavaScript and TypeScript",
   "main": "index.js",

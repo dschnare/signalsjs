@@ -1,4 +1,4 @@
-declare module "signals" {
+declare module "@dschnare/signals" {
 	export var signal: SignalFunction;
 
 	export interface SignalFunction {
