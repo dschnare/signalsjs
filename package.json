@@ -4,11 +4,11 @@
   "description": "Signal library for JavaScript and TypeScript",
   "main": "index.js",
   "typescript": {
-      "definition": "signals.d.ts"
+    "definition": "signals.d.ts"
   },
   "scripts": {
-    "test": "tape **/*.spec.js",
-    "compileweb": "rimraf dist/* && browserify index.js --debug --standalone signals | exorcist dist/signals.js.map > dist/signals.js",
+    "test": "istanbul cover node_modules/tape/bin/tape -- **/*.spec.js",
+    "compileweb": "rimraf dist/* && browserify index.js --debug --standalone signals | exorcist dist/signals.js.map > dist/signals.js && npm run minifyweb",
     "minifyweb": "uglifyjs --compress --mangle --comments --in-source-map dist/signals.js.map --source-map dist/signals.min.js.map --source-map-url signals.min.js.map -o dist/signals.min.js -- dist/signals.js"
   },
   "keywords": [
@@ -24,6 +24,7 @@
   "devDependencies": {
     "browserify": "^12.0.1",
     "exorcist": "^0.4.0",
+    "istanbul": "^0.4.0",
     "rimraf": "^2.4.3",
     "tape": "^4.2.2",
     "uglify-js": "^2.5.0"
