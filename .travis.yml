@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- "4.2.2"
+- "0.12"
+- "0.11"
+- "0.10"
+
+branches:
+  only:
+    - master
+    - develop
+
+addons:
+  code_climate:
+    repo_token: 04e087879582949f2beeca9de6c8a8c52d6534a58024166c90b4d56ad8e1e60d
+
+after_script:
+  - codeclimate-test-reporter < coverage/lcov.info
