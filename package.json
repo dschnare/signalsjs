@@ -1,6 +1,6 @@
 {
   "name": "@dschnare/signalsjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Signal library for JavaScript and TypeScript",
   "main": "index.js",
   "typescript": {
