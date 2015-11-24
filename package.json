@@ -1,22 +1,20 @@
 {
   "name": "@dschnare/signalsjs",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Signal library for JavaScript and TypeScript",
   "main": "index.js",
   "typescript": {
     "definition": "signals.d.ts"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/tape/bin/tape -- **/*.spec.js",
+    "test": "istanbul cover node_modules/tape/bin/tape -- test/**/*.spec.js",
     "compileweb": "rimraf dist/* && browserify index.js --debug --standalone signals | exorcist dist/signals.js.map > dist/signals.js && npm run minifyweb",
     "minifyweb": "uglifyjs --compress --mangle --comments --in-source-map dist/signals.js.map --source-map dist/signals.min.js.map --source-map-url signals.min.js.map -o dist/signals.min.js -- dist/signals.js"
   },
   "keywords": [
     "signal",
-    "slot",
     "event",
     "signals",
-    "slots",
     "events"
   ],
   "author": "Darren Schnare <schnare.d@gmail.com>",

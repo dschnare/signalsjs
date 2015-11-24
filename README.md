@@ -33,15 +33,15 @@ event-based architectures. The benefit is that objects create signals as part of
 
 	// Somewhere in code we connect to the widget's signals we're interested in.
 
-	widget.initialized(function () {
+	widget.initialized.connect(function () {
 		// Do things with the widget after it's ready.
 		widget.doThings();
 
-		widget.dropped(function () {
+		widget.dropped.connect(function () {
 			// Do something after the widget has been dropped.
 		});
 
-		widget.disposed(function () {
+		widget.disposed.connect(function () {
 			// disconnectAll() will disconnect all connected handlers from a signal.
 			widget.initialized.disconnectAll();
 			widget.dropped.disconnectAll();
@@ -81,7 +81,7 @@ When this method is called the connection will be disconnected from the signal a
 no longer be called when the signal emits. This method can be called after the connection has been
 disconnected without any side effects.
 
-	var dropped_c = widget.dropped(myHandler);
+	var dropped_c = widget.dropped.connect(myHandler);
 	dropped_c.disconnect();
 
 	// This won't call our handler.
@@ -98,20 +98,20 @@ it's called and its priority relative to other connected handlers.
 Using our widget as an example, let's look at how we might connect to its signals using these options.
 
 	// Pass a `this` object so that our handler will be called in this context.
-	widget.initialized(myHandler, theThisObj);
+	widget.initialized.connect(myHandler, theThisObj);
 
 	// Pass a priority so that our handler is placed before lower priority handlers.
 	// The default priority is 1000 if not specified.
-	widget.initialized(myHandler, 2000);
+	widget.initialized.connect(myHandler, 2000);
 
 	// Provide both options in one go.
-	widget.initialized(myHandler, theThisObj, 2000);
+	widget.initialized.connect(myHandler, theThisObj, 2000);
 
 Prioritizing connected handlers comes in handy if you want to cancel a signal so that other
 connected handlers are not called. To cancel a signal a connected handler must return
 `signals.signal.CANCEL`.
 
-	widget.dropped(function () {
+	widget.dropped.connect(function () {
 		// Decide to cancel the signal.
 		return signals.signal.CANCEL;
 	}, 2000);
@@ -193,11 +193,11 @@ it's common to have to write code like this.
 
 Using signals this can be written much more concisely.
 
-	videoPlayer.volumeChanged(controls.volume);
-	videoPlayer.muteChanged(controls.mute);
-	controls.volumeChanged(videoPlayer.volume);
-	controls.muteChanged(videoPlayer.mute);
-	controls.playAction(videoPlayer.play);
+	videoPlayer.volumeChanged.connect(controls.volume);
+	videoPlayer.muteChanged.connect(controls.mute);
+	controls.volumeChanged.connect(videoPlayer.volume);
+	controls.muteChanged.connect(videoPlayer.mute);
+	controls.playOccured.connect(videoPlayer.play);
 
 The beauty of this architecture is that other components can just as easily be hooked up in a similar fashion.
 Now here's the signal code needed to pull this off.
@@ -205,7 +205,7 @@ Now here's the signal code needed to pull this off.
 	// Controls //
 
 	// The signal that indicates some play control has been interacted with.
-	controls.playAction = signals.signal('controls.playAction');
+	controls.playOccured = signals.signal('controls.playOccured');
 
 	// The signal that indicates that the volume state has changed.
 	controls.volumeChanged = signals.signal('controls.volume');

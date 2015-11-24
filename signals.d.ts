@@ -34,10 +34,10 @@ declare module "@dschnare/signalsjs" {
 		 * @param thisObj The context that the handler will be called with.
 		 * @return A new connection object.
 		 */
-		(handler: (...args: Array<any>) => void): Connection;
-		(handler: (...args: Array<any>) => void, priority: number): Connection;
-		(handler: (...args: Array<any>) => void, thisObj: any): Connection;
-		(handler: (...args: Array<any>) => void, thisObj: any, priority: number): Connection;
+		connect(handler: (...args: Array<any>) => void): Connection;
+		connect(handler: (...args: Array<any>) => void, priority: number): Connection;
+		connect(handler: (...args: Array<any>) => void, thisObj: any): Connection;
+		connect(handler: (...args: Array<any>) => void, thisObj: any, priority: number): Connection;
 		/**
 		 * Connects a handler to the signal, but will automatically disconnect the handler after its been called once.
 		 *
@@ -57,6 +57,15 @@ declare module "@dschnare/signalsjs" {
 		 * @return True if signal emission was not canclled, false otherwise.
 		 */
 		emit(...args: Array<any>): boolean;
+		/**
+		 * Attempts to emit the signal asynchronously. This will throw if the signal is locked.
+		 *
+		 * @param args The arguments to pass to the connected handlers as an array.
+		 * @param complete The function to call when the emission has completed.
+		 * @param duration The duration to wait before calling emit. If not specified then waits until the thread is free.
+		 */
+		emitAsync(args: Array<any>, complete: (success: boolean) => void);
+		emitAsync(args: Array<any>, complete: (success: boolean) => void, duration: number);
 		/**
 		 * Attempts to lock the signal using the specified key. This will throw if the signal is locked.
 		 *

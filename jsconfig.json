@@ -7,6 +7,6 @@
 	"files": [
 		"index.js",
 		"lib/signal.js",
-		"lib/slot.js"
+		"signals.d.ts"
 	]
 }
